@@ -5,6 +5,10 @@ const app = express()
 
 app.use(express.static('public'))
 
+app.get('/api/test', (req, res) => {
+  res.json({code: 200, data: {city: '北京', weather: 'snow'}})
+})
+
 app.get('/', (req, res) => res.send(renderServe()))
 
 app.listen(3000, () => console.log('Example app listening on port 3000!'))

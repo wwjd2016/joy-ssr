@@ -1,19 +1,28 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
+import {getHomeWeather} from './store/actions'
 
 class Home extends Component {
   componentDidMount() {
-    console.log('did mount')
+    this.props.updateHomeWeather()
   }
   render() {
     return (
-      <div>welcome to my home page!{this.props.weather}</div>
+      <div>welcome to my home page!{this.props.weather.weather}</div>
     )
   }
+}
+
+Home.loadData = () => {
+  console.log(123)
 }
 
 const mapStateToProps = state => ({
   weather: state.home.weather
 })
 
-export default connect(mapStateToProps)(Home);
+const mapDispatchToProps = dispatch => ({
+  updateHomeWeather: () => dispatch(getHomeWeather)
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

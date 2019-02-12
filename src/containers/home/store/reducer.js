@@ -1,14 +1,16 @@
+import { UPDATE_WEATHER } from "./constants";
+
 const defaultState = {
   name: 'yz',
-  weather: 'cool'
+  weather: {city: '郑州', weather: 'fine'}
 }
 
 export default (state=defaultState, action) => {
   switch(action.type) {
-    case 'updateWeather':
+    case UPDATE_WEATHER:
       return {
         ...state,
-        weather: action.payload
+        weather: action.weather
       }
     default:
       return state
