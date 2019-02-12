@@ -3,11 +3,11 @@ import React, {Fragment} from 'react'
 import {Provider} from 'react-redux'
 import {StaticRouter, Route} from 'react-router-dom'
 import routes from './routes'
-import {getServeStore} from './store'
-
+import {getStore} from './store'
 
 export const renderServe = () => {
-  const store = getServeStore()
+  const store = getStore()
+
   const Content = <Provider store={store}>
       <StaticRouter>
         <Fragment>
@@ -21,7 +21,7 @@ export const renderServe = () => {
     <head><title>ssr</title></head>
     <body>
       <div id="root">${renderToString(Content)}</div>
-      <script>window.STORE = ${JSON.stringify(store)}</script>
+      <script>window.__INIT__STATE__ = ${JSON.stringify(store.getState())}</script>
       <script src='/index.js'></script>
     </body>
   </html>`

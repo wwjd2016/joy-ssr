@@ -2,11 +2,12 @@ import React, {Component, Fragment} from 'react'
 import ReactDOM from 'react-dom'
 import {Provider} from 'react-redux'
 import {BrowserRouter, Route} from 'react-router-dom'
-import {getClientStore} from '../store/index'
+import {getStore} from '../store/index'
 import routes from '../routes'
 
+const store = getStore(window.__INIT__STATE__)
 const App = () => (
-  <Provider store={getClientStore()}>
+  <Provider store={store}>
     <BrowserRouter>
       <Fragment>
         {
