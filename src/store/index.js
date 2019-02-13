@@ -1,7 +1,7 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux'
 import {reducer as home} from '../containers/home/store'
 import thunk from 'redux-thunk';
-import {clientInstance, serveInstance} from '../apis/request'
+import {clientInstance, serveInstance} from '../client/utils/request'
 
 const reducers = combineReducers({
   home

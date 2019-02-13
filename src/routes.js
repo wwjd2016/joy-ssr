@@ -1,4 +1,3 @@
-import {Route} from 'react-router-dom'
 import Home from './containers/home'
 import Login from './containers/Login'
 
