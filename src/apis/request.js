@@ -5,5 +5,5 @@ export const clientInstance = axios.create({
 })
 
 export const serveInstance = axios.create({
-  baseURL: '/'
+  baseURL: 'http://localhost:3000'
 })

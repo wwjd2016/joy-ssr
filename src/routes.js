@@ -5,8 +5,9 @@ import Login from './containers/Login'
 export default [
   {
     path: '/',
-    exact: false,
+    exact: true,
     component: Home,
+    loadData: Home.loadData
     // children: [
     //   {
     //     path: '/home',

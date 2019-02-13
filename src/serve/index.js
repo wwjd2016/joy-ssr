@@ -9,6 +9,6 @@ app.get('/api/test', (req, res) => {
   res.json({code: 200, data: {city: '北京', weather: 'snow'}})
 })
 
-app.get('/', (req, res) => res.send(renderServe()))
+app.get('*', (req, res) => renderServe(req, res))
 
 app.listen(3000, () => console.log('Example app listening on port 3000!'))

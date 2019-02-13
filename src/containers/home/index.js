@@ -7,18 +7,23 @@ class Home extends Component {
     this.props.updateHomeWeather()
   }
   render() {
+    const {weather, name} = this.props
     return (
-      <div>welcome to my home page!{this.props.weather.weather}</div>
+      <div>
+        <div>{name}, welcome to home page!</div>
+        <div>city: {weather.city}, weather: {weather.weather}</div>
+      </div>
     )
   }
 }
 
-Home.loadData = () => {
-  console.log(123)
+Home.loadData = (store) => {
+  return store.dispatch(getHomeWeather)
 }
 
 const mapStateToProps = state => ({
-  weather: state.home.weather
+  weather: state.home.weather,
+  name: state.home.name
 })
 
 const mapDispatchToProps = dispatch => ({
